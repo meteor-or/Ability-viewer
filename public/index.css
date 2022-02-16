@@ -9,6 +9,10 @@
   --gray--900: #18181b;
   --white: #fff;
 }
+/*** input, button unset ***/
+.unset {
+  all: unset;
+}
 
 /*** background-color ***/
 .bg-50 {
@@ -32,6 +36,9 @@
 .bg-900 {
   background-color: var(--gray--900);
 }
+.bg-white {
+  background-color: var(--white);
+}
 
 /*** text-color ***/
 .tc-50 {
@@ -54,6 +61,107 @@
 }
 .tc-900 {
   color: var(--gray--900);
+}
+.tc-white {
+  color: var(--white);
+}
+
+/*** hover background-color ***/
+.hover-bg-50:hover {
+  background-color: var(--gray--50);
+}
+.hover-bg-100:hover {
+  background-color: var(--gray--100);
+}
+.hover-bg-300:hover {
+  background-color: var(--gray--300);
+}
+.hover-bg-400:hover {
+  background-color: var(--gray--400);
+}
+.hover-bg-500:hover {
+  background-color: var(--gray--500);
+}
+.hover-bg-800:hover {
+  background-color: var(--gray--800);
+}
+.hover-bg-900:hover {
+  background-color: var(--gray--900);
+}
+.hover-bg-white:hover {
+  background-color: var(--white);
+}
+
+/*** hover text-color ***/
+.hover-tc-50:hover {
+  color: var(--gray--50);
+}
+.hover-tc-100:hover {
+  color: var(--gray--100);
+}
+.hover-tc-300:hover {
+  color: var(--gray--300);
+}
+.hover-tc-400:hover {
+  color: var(--gray--400);
+}
+.hover-tc-500:hover {
+  color: var(--gray--500);
+}
+.hover-tc-800:hover {
+  color: var(--gray--800);
+}
+.hover-tc-900:hover {
+  color: var(--gray--900);
+}
+.hover-tc-white:hover {
+  color: var(--white);
+}
+
+/*** border-radius ***/
+.br-4 {
+  border-radius: 4px;
+}
+.br-8 {
+  border-radius: 8px;
+}
+.br-12 {
+  border-radius: 12px;
+}
+.br-16 {
+  border-radius: 16px;
+}
+.br-20 {
+  border-radius: 20px;
+}
+.br-24 {
+  border-radius: 24px;
+}
+.br-circle {
+  border-radius: 50%;
+}
+
+/*** border ***/
+.b-50 {
+  border: 1px solid var(--gray--50);
+}
+.b-100 {
+  border: 1px solid var(--gray--100);
+}
+.b-300 {
+  border: 1px solid var(--gray--300);
+}
+.b-400 {
+  border: 1px solid var(--gray--400);
+}
+.b-500 {
+  border: 1px solid var(--gray--500);
+}
+.b-800 {
+  border: 1px solid var(--gray--800);
+}
+.b-900 {
+  border: 1px solid var(--gray--900);
 }
 
 /*** padding ***/
@@ -151,6 +259,48 @@
 }
 .pr-24 {
   padding-right: 24px;
+}
+/* x축 */
+.px-4 {
+  padding: 0 4px;
+}
+.px-8 {
+  padding: 0 8px;
+}
+.px-12 {
+  padding: 0 12px;
+}
+.px-16 {
+  padding: 0 16px;
+}
+.px-20 {
+  padding: 0 20px;
+}
+.px-24 {
+  padding: 0 24px;
+}
+/* y축 */
+.py-4 {
+  padding: 4px 0;
+}
+.py-8 {
+  padding: 8px 0;
+}
+.py-12 {
+  padding: 12px 0;
+}
+.py-16 {
+  padding: 16px 0;
+}
+.py-20 {
+  padding: 20px 0;
+}
+.py-24 {
+  padding: 24px 0;
+}
+/* xy */
+.pxy-8-2 {
+  padding: 2px 8px;
 }
 
 /*** font size ***/
