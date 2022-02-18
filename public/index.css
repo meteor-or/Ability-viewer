@@ -13,6 +13,7 @@
 .unset {
   all: unset;
 }
+
 /*** font ***/
 /* font-family */
 @font-face {
@@ -51,6 +52,8 @@
 .font-black {
   font-weight: 900;
 }
+/* font-color */
+.
 
 /*** margin ***/
 .m-4 {
@@ -144,40 +147,52 @@
   margin-left: 24px;
 }
 .mx-4 {
-  margin: 0 4px;
+  margin-right: 4px;
+  margin-left: 4px;
 }
 .mx-8 {
-  margin: 0 8px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 .mx-12 {
-  margin: 0 12px;
+  margin-right: 12px;
+  margin-left: 12px;
 }
 .mx-16 {
-  margin: 0 16px;
+  margin-right: 16px;
+  margin-left: 16px;
 }
 .mx-20 {
-  margin: 0 20px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .mx-24 {
-  margin: 0 24px;
+  margin-right: 24px;
+  margin-left: 24px;
 }
 .my-4 {
-  margin: 4px 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 .my-8 {
-  margin: 8px 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 .my-12 {
-  margin: 12px 0;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 .my-16 {
-  margin: 16px 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
-.my-2- {
-  margin: 20px 0;
+.my-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .my-24 {
-  margin: 24px 0;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 /*** width ***/
@@ -397,6 +412,10 @@
   color: var(--white);
 }
 
+.active-b-800:focus{
+  border: 1px solid var(--gray--800);
+}
+
 /*** border-radius ***/
 .br-4 {
   border-radius: 4px;
@@ -540,42 +559,54 @@
   padding-right: 24px;
 }
 /* x축 */
-.px-4 {
-  padding: 0 4px;
-}
-.px-8 {
-  padding: 0 8px;
-}
-.px-12 {
-  padding: 0 12px;
-}
-.px-16 {
-  padding: 0 16px;
-}
-.px-20 {
-  padding: 0 20px;
-}
-.px-24 {
-  padding: 0 24px;
-}
-/* y축 */
 .py-4 {
-  padding: 4px 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .py-8 {
-  padding: 8px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .py-12 {
-  padding: 12px 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .py-16 {
-  padding: 16px 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 .py-20 {
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .py-24 {
-  padding: 24px 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+/* y축 */
+.px-4 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.px-8 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.px-12 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.px-16 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.px-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.px-24 {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 /* xy */
 .pxy-8-2 {
