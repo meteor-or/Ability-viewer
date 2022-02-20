@@ -53,7 +53,6 @@
   font-weight: 900;
 }
 /* font-color */
-.
 
 /*** margin ***/
 .m-4 {
@@ -412,7 +411,7 @@
   color: var(--white);
 }
 
-.active-b-800:focus{
+.active-b-800:focus {
   border: 1px solid var(--gray--800);
 }
 
