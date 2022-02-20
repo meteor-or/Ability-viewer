@@ -53,7 +53,6 @@
   font-weight: 900;
 }
 /* font-color */
-.
 
 /*** margin ***/
 .m-4 {
@@ -412,8 +411,15 @@
   color: var(--white);
 }
 
-.active-b-800:focus{
+.active-b-800:focus {
   border: 1px solid var(--gray--800);
+}
+.active-control {
+  transition: 0.2s;
+}
+.active-control:active {
+  background-color: var(--gray--900);
+  color: var(--gray--50);
 }
 
 /*** border-radius ***/
@@ -437,6 +443,12 @@
 }
 .br-circle {
   border-radius: 50%;
+}
+.br-left {
+  border-radius: 10px 0 0 10px;
+}
+.br-right {
+  border-radius: 0 10px 10px 0;
 }
 
 /*** border ***/

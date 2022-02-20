@@ -1,3 +1,8 @@
+const submitType = Object.freeze({
+  login: 'login',
+  register: 'register'
+});
+
 const Submit = ({ type }) => {
   return (
     <button 
