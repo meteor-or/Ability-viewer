@@ -1,19 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logoShort from '../asset/icon.png'
 import logoFull from '../asset/logo.png'
 
 
 export const LogoShort = () => {
 	return (
-		<a href="/">
+		<Link to="/">
 			<img src={logoShort} className="w-full h-full" />
-		</a>
+		</Link>
 	)
 }
 export const LogoFull = () => {
 	return (
-		<a href="/">
+		<Link to="/">
 			<img src={logoFull} className="w-fit h-fit" />
-		</a>
+		</Link>
 	)
 }
