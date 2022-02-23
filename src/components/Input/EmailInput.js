@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Email= () => {
+const EmailInput = () => {
 	const [inputEmail,setInputEmail] = useState('')
 	
 	const onChangeEmail = (e) => {
@@ -16,7 +16,8 @@ const Email= () => {
 
 	return (
 		<div>
-			<input list='email' onChange={onChangeEmail} />
+			<label htmlFor='email'>이메일</label>
+			<input className='w-full bg-white br-8 px-16 py-12 b-400 my-8 active-b-800 pretendard fs-16' type="email" list='email' onChange={onChangeEmail} />
 			<datalist id="email">
 				{inputEmail && inputEmail.map((email)=> (
 					<option value={email}/>
@@ -26,4 +27,4 @@ const Email= () => {
 	)
 }
 
-export default Email
+export default EmailInput
