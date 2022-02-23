@@ -10,17 +10,19 @@ import Viewer from "./Page/Viewer";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App pretendard" >
       <Header />
-      <Routes>
-        <Route path="/" element={<Viewer />}/>
-        <Route path="/list" element={<List />}/>
-        <Route path="/mypage" element={<Mypage />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/signup" element={<Signup />}/>
-        <Route path="/find_id" element={<FindId />}/>
-        <Route path="/find_password" element={<FindPw />}/>
-      </Routes>
+      <main className="h-main bg-100">
+        <Routes>
+          <Route path="/" element={<Viewer />}/>
+          <Route path="/list" element={<List />}/>
+          <Route path="/mypage" element={<Mypage />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/signup" element={<Signup />}/>
+          <Route path="/find_id" element={<FindId />}/>
+          <Route path="/find_password" element={<FindPw />}/>
+        </Routes>
+      </main>
     </div>
   );
 }

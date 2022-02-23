@@ -9,9 +9,13 @@
   --gray--900: #18181b;
   --white: #fff;
 }
+
 /*** input, button unset ***/
 .unset {
   all: unset;
+}
+.border-box{
+  box-sizing: border-box;
 }
 
 /*** font ***/
@@ -299,7 +303,9 @@
 .h-screen {
   height: 100vh;
 }
-
+.h-main{
+  height:calc(100vh - 50px);
+}
 .min-h-70 {
   min-height: 70px;
 }
