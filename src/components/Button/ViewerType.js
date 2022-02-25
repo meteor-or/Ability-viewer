@@ -3,7 +3,7 @@ const viewerType = Object.freeze({
   kakao: 'kakao'
 });
 
-const Viewer = ({ type, isSelected }) => {
+const ViewerType= ({ type, isSelected }) => {
   return (
     <button
       className={`unset br-8 pxy-8-2 ${isSelected ? 'b-800 bg-800 tc-50' : 'b-800 bg-white tc-900'}`}
@@ -14,4 +14,4 @@ const Viewer = ({ type, isSelected }) => {
   )
 };
 
-export default Viewer;
+export default ViewerType

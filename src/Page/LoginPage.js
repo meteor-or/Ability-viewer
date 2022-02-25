@@ -4,9 +4,9 @@ import Submit from '../components/Button/Submit'
 import TextInput from '../components/Input/TextInput'
 import PasswordInput from '../components/Input/PasswordInput'
 
-const Login = () => {
+const LoginPage = () => {
 	return (
-		<div id='login'>
+		<div id='loginPage'>
 			<div className='px-24 w-full flex f-column f-ai-center'>
 				<from method="post" id="authForm">
 					<TextInput id="IoginId" placeholder="아이디"/>
@@ -23,4 +23,4 @@ const Login = () => {
 	)
 }
 
-export default Login
+export default LoginPage
