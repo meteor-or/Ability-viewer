@@ -7,6 +7,7 @@ import LoginPage from "./Page/LoginPage";
 import Mypage from "./Page/Mypage";
 import SignupPage from "./Page/SignupPage";
 import ViewerPage from "./Page/ViewerPage";
+import ViewerAll from "./Page/ViewerAll";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <main className="h-main bg-100">
         <Routes>
           <Route path="/" element={<ViewerPage />}/>
+          <Route path="/viewer_all" element={<ViewerAll />}/>
           <Route path="/list" element={<ListPage />}/>
           <Route path="/mypage" element={<Mypage />}/>
           <Route path="/login" element={<LoginPage />}/>

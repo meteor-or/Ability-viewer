@@ -7,15 +7,21 @@ configure({ enforceActions: 'observed' });
 class OptionStore {
   static exist = false;
   static instance;
+
+  fontSizeNum = 5;
+  paragraphHeigthNum = 1;
+  lineHeigthNum = 1;
   
   // 글꼴
   fontFamily = '';
   // 글자 크기
-  fontSize = '';
+  fontSize = `ridi_fs_${this.fontSizeNum}`;
   // 문단 너비
-  paragraphHeigth = '';
+  paragraphHeigth = `ridi_ph_${this.paragraphHeigthNum}`;
   // 줄 간격
-  lineHeigth = '';
+  lineHeigth = `ridi_lh_${this.lineHeigthNum}`;
+  // 사용자 입력 Text
+  text = '';
 
   // option type 설정
   optionType = Object.freeze({
@@ -23,50 +29,72 @@ class OptionStore {
     fontSize: 'fontSize',
     paragraphHeigth: 'paragraphHeigth',
     lineHeigth: 'lineHeigth'
-  })
+  });
 
-  // 외부 호출용 옵션 설정
-  setOption(type, option) {
-    // type check
-    if(typeof(option) !== 'string') return false;
-    return this.#setOptionPrivate(type);
-  }
+  setText(_text) {
+    this.text = _text;
+  };
 
-  // private 옵션 설정
-  #setOptionPrivate() {
+  optionPlus(type) {
     switch (type) {
-      case this.optionType.fontFamily:
-        this.fontFamily = option;
-        return true;
       case this.optionType.fontSize:
-        this.fontSize = option;
-        return true;
+        if(this.fontSizeNum === 12) return;
+        this.fontSizeNum++;
+        break;
       case this.optionType.paragraphHeigth:
-        this.paragraphHeigth = option;
-        return true;
+        if(this.paragraphHeigthNum === 6) return;
+        this.paragraphHeigthNum++;
+        break;
       case this.optionType.lineHeigth:
-        this.lineHeigth = option;
-        return true;
+        if(this.lineHeigthNum === 6) return;
+        this.lineHeigthNum++;
+        break;
       default:
-        return false;
+        break;
     }
-  }
+  };
+  // crain7326@naver.com
+
+  optionMinus(type) {
+    switch (type) {
+      case this.optionType.fontSize:
+        if(this.fontSizeNum === 1) return;
+        this.fontSizeNum--;
+        break;
+      case this.optionType.paragraphHeigth:
+        if(this.paragraphHeigthNum === 1) return;
+        this.paragraphHeigthNum--;
+        break;
+      case this.optionType.lineHeigth:
+        if(this.lineHeigthNum === 1) return;
+        this.lineHeigthNum--;
+        break;
+      default:
+        break;
+    }
+  };
 
   constructor() {
-    if(exist) return OptionStore.instance;
+    if(OptionStore.exist) return OptionStore.instance;
 
     OptionStore.exist = true;
     OptionStore.instance = this;
 
     makeObservable(this, {
       // observable(state) 등록
+      fontSizeNum: observable,
+      paragraphHeigthNum: observable,
+      lineHeigthNum: observable,
       fontFamily: observable,
       fontSize: observable,
       paragraphHeigth: observable,
       lineHeigth: observable,
+      text: observable,
 
       // action 등록
-      setOption: action,
+      setText: action,
+      optionPlus: action,
+      optionMinus: action
     });
   }
 }

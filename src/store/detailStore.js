@@ -8,8 +8,7 @@ class DetailStore {
   hashtag = {};
 
   constructor() {
-    makeObservable({
-      // 
+    makeObservable(this, {
       hashtag: observable,
 
       setHashtag: action,
@@ -23,11 +22,12 @@ class DetailStore {
   }
 
   // private 해시태그 설정
-  async #setHashtagPrivate() {
+  async #setHashtagPrivate(request) {
     const response = await axios.post('url', request);
     this.hashtag = response.data;
     return true;
   }
+
 }
 
 const detailStore = new DetailStore();
