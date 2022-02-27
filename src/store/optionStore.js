@@ -53,7 +53,6 @@ class OptionStore {
         break;
     }
   };
-  // crain7326@naver.com
 
   optionMinus(type) {
     switch (type) {
