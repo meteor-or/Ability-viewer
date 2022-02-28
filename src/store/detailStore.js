@@ -23,7 +23,7 @@ class DetailStore {
 
   // private 해시태그 설정
   async #setHashtagPrivate(request) {
-    const response = await axios.post('url', request);
+    const response = await axios.post('https://ability-backend.azurewebsites.net/tags', request);
     this.hashtag = response.data;
     return true;
   }

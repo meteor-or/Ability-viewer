@@ -23,8 +23,11 @@ const optionType = Object.freeze({
 	lineHeigth: 'lineHeigth'
 });
 
+
+
 const ViewerPage = () => {
 	const { optionStore } = indexStore();
+	const { detailStore } = indexStore();
 
 	const [inputHashtagVal, setInputHashtagVal] = useState()
 	const [hashtags, setHashtags] = useState([]);
@@ -37,8 +40,14 @@ const ViewerPage = () => {
 			setHashtags((hashtags) => [...hashtags, inputHashtagVal])
 			e.target.value = ""
 		}
+		if (e.keyCode == 8 && hashtags) {
+			hashtags.pop()
+			setHashtags(hashtags)
+			const lastHashtag = document.querySelector(".hastagBox").lastChild
+			lastHashtag.remove()
+		}
 	})
-
+	
 	return (
 		<div className='ViewerPage pt-12'>
 			<div className='ViewerType mx-20 bg-white flex f-ai-center f-jc-between p-12 br-12'>
@@ -64,15 +73,15 @@ const ViewerPage = () => {
 			</div>
 			<div className='ViewerBtn tc-500 mx-20 my-12' style={{textAlign: 'right'}}>
 				<Link to='/viewer_all' onClick={()=>optionStore.setText(document.querySelector('.user_text').value)}>전체보기</Link>
-				<Link to='/' className='ml-12'>저장하기</Link>
+				<Link to='/' onClick={()=>detailStore.setHashtag()} className='ml-12'>저장하기</Link>
 			</div>
 			<div className='Viewer'>
 				<div className='bg-white flex f-column br-12 py-12 px-24'>
 					<input className='unset py-8' placeholder='제목을 입력하세요' style={{borderBottom: "1px solid var(--gray--300)"}}></input>
 					<div className='hashtagWrap flex f-ai-center' style={{borderBottom: "1px solid var(--gray--300)"}} >
 						<div className='hastagBox'>
-							{hashtags && hashtags.map((text) => (
-								<Hashtag text={text}/>
+							{hashtags && hashtags.map((text, index) => (
+								<Hashtag key={index} text={text}/>
 							))}
 						</div>
 						<input className='unset py-8 ' placeholder='해시태그를 입력하세요' onKeyUp={clickSpace} onChange={onChangeHashtag}/>
