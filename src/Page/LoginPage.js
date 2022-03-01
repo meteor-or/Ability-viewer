@@ -1,26 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
+
+import { observer } from 'mobx-react';
+import indexStore from '../store/indexStore';
 
 const LoginPage = () => {
+	const {userStore} = indexStore();
+
 	const [loginId, setLoginId] = useState("")
 	const [loginPw, setLoginPw] = useState("")
 	
-	const handlelogin = async() => {
-		const request = {
-			"id" : loginId,
-			"password" : loginPw
-		}
-		try {
-			await axios({
-				method: "post",
-				url: "https://ability-backend.azurewebsites.net/login",
-				data: request,
-			});
-		} catch(error) {
-			console.log(error.response.data)
-		}
-	}
+
 	
 	return (
 		<div id='loginPage'>
@@ -46,7 +36,7 @@ const LoginPage = () => {
 					<button 
 					className='unset border-box br-12 b-500 bg-500 tc-50 w-full px-16 py-12 my-8' 
 					style={{textAlign: 'center', cursor: 'pointer'}}
-					onClick={handlelogin}>로그인</button>
+					onClick={()=>{userStore.handleLogin(loginId,loginPw)}}>로그인</button>
 				</from>
 				<div className='errorBox'></div>
 				<ul className='flex'>
@@ -59,4 +49,4 @@ const LoginPage = () => {
 	)
 }
 
-export default LoginPage
+export default observer(LoginPage)
