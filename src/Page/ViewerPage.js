@@ -8,12 +8,7 @@ import { observer } from 'mobx-react';
 import ViewerType from '../components/Button/ViewerType';
 import Control from '../components/Button/Control';
 import Hashtag from '../components/Hashtag';
-
-//  viewer type 설정
-const viewerType = Object.freeze({
-	ridi: '리디북스',
-	kakao: '카카오'
-});
+import Toggle from '../components/Button/Toggle';
 
 // option type 설정
 const optionType = Object.freeze({
@@ -53,11 +48,21 @@ const ViewerPage = () => {
 			<div className='ViewerType mx-20 bg-white flex f-ai-center f-jc-between p-12 br-12'>
 				<p>뷰어 설정</p>
 				<div className='btnWrap'>
-					<ViewerType type={viewerType.ridi} isSelected='true'/>
-					<ViewerType type={viewerType.kakao} />
+					<ViewerType type={optionStore.viewer.ridi} isSelected={optionStore.viewerType === '리디북스' && true}/>
+					<ViewerType type={optionStore.viewer.kakao} isSelected={optionStore.viewerType === '카카오' && true}/>
 				</div>
 			</div>
 			<div className='ViewerSetting mx-20 mt-12 bg-white p-12 br-12'>
+				<div className='ViewerSettingDetail flex f-ai-center f-jc-between my-8'>
+					<p className='flex f-ai-center'>글꼴</p>
+					<p className='flex mb-4' style={{cursor: 'pointer'}} onClick={e=>e.target.textContent.includes('|') === false && optionStore.setFontFamily(e.target.textContent.split(' ')[1])}>
+						<span className={optionStore.fontFamily === '바탕' ? 'tc-900' : 'tc-300'}>KoPub 바탕</span>
+						<span className='mx-4 tc-300'> | </span> 
+						<span className={optionStore.fontFamily === '돋움' ? 'tc-900' : 'tc-300'}>KoPub 돋움</span>
+						<span className='mx-4 tc-300'> | </span> 
+						<span className={optionStore.fontFamily === '명조' ? 'tc-900' : 'tc-300'}>KoPub 명조</span>
+					</p>
+				</div>
 				<div className='ViewerSettingDetail flex f-ai-center f-jc-between my-8'>
 					<p className='flex f-ai-center'>글자 크기<span className='fs-14 ml-4'>{optionStore.fontSizeNum}</span></p>
 					<Control type={optionType.fontSize} />
@@ -70,6 +75,12 @@ const ViewerPage = () => {
 					<p className='flex f-ai-center'>줄 간격<span className='fs-14 ml-4'>{optionStore.lineHeigthNum}</span></p>
 					<Control type={optionType.lineHeigth} />
 				</div>
+				{optionStore.viewerType === optionStore.viewer.kakao && (
+					<div className='ViewerSettingDetail flex f-ai-center f-jc-between my-8'>
+						<p className='flex f-ai-center'>이미지 뷰어로 보기</p>
+						<Toggle />
+					</div>
+				)}
 			</div>
 			<div className='ViewerBtn tc-500 mx-20 my-12' style={{textAlign: 'right'}}>
 				<Link to='/viewer_all' onClick={()=>optionStore.setText(document.querySelector('.user_text').value)}>전체보기</Link>
