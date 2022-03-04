@@ -83,7 +83,10 @@ const ViewerPage = () => {
 				)}
 			</div>
 			<div className='ViewerBtn tc-500 mx-20 my-12' style={{textAlign: 'right'}}>
-				<Link to='/viewer_all' onClick={()=>optionStore.setText(document.querySelector('.user_text').value)}>전체보기</Link>
+				<Link to='/viewer_all' onClick={()=>{
+					optionStore.setText(document.querySelector('.user_text').value);
+					optionStore.setTextBundle(optionStore.text);
+				}}>전체보기</Link>
 				<Link to='/' onClick={()=>detailStore.setHashtag()} className='ml-12'>저장하기</Link>
 			</div>
 			<div className='Viewer'>

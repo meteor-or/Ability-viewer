@@ -1,4 +1,4 @@
-import { observable, action, makeObservable, configure, override } from 'mobx';
+import { observable, action, makeObservable, configure } from 'mobx';
 
 // action으로만 observable(state) 수정하도록 설정
 configure({ enforceActions: 'observed' });
@@ -28,6 +28,19 @@ class OptionStore {
   lineHeigth = `ridi_lh_${this.lineHeigthNum}`;
   // 사용자 입력 Text
   text = '';
+  setText(_text) {
+    this.text = _text;
+  };
+  // 입력한 text 배열
+  textBundle = [];
+  setTextBundle(_text) {
+    if(typeof(_text) !== 'string') return false;
+  
+    const text = _text.replace(/(\r\n|\n|\r)/gm, '<BR>');
+    const arr = text.split('<BR>');
+    const textBundle = arr.filter(text => text !== '');
+    this.textBundle = textBundle;
+  };
 
   // option type
   optionType = Object.freeze({
@@ -45,10 +58,6 @@ class OptionStore {
     kakao: '카카오'
   });
 
-  setText(_text) {
-    this.text = _text;
-  };
-
   // param: viewer.ridi or kakao
   setViewerType(type) {
     if(typeof(type) !== 'string') return;
@@ -60,14 +69,17 @@ class OptionStore {
       case this.optionType.fontSize:
         if(this.fontSizeNum === 12) return;
         this.fontSizeNum++;
+        this.fontSize = `ridi_fs_${this.fontSizeNum}`;
         break;
       case this.optionType.paragraphHeigth:
         if(this.paragraphHeigthNum === 6) return;
         this.paragraphHeigthNum++;
+        this.paragraphHeigth = `ridi_fs_${this.paragraphHeigthNum}`;
         break;
       case this.optionType.lineHeigth:
         if(this.lineHeigthNum === 6) return;
         this.lineHeigthNum++;
+        this.lineHeigth = `ridi_fs_${this.lineHeigthNum}`;
         break;
       default:
         break;
@@ -79,14 +91,17 @@ class OptionStore {
       case this.optionType.fontSize:
         if(this.fontSizeNum === 1) return;
         this.fontSizeNum--;
+        this.fontSize = `ridi_fs_${this.fontSizeNum}`;
         break;
       case this.optionType.paragraphHeigth:
         if(this.paragraphHeigthNum === 1) return;
         this.paragraphHeigthNum--;
+        this.paragraphHeigth = `ridi_fs_${this.paragraphHeigthNum}`;
         break;
       case this.optionType.lineHeigth:
         if(this.lineHeigthNum === 1) return;
         this.lineHeigthNum--;
+        this.lineHeigth = `ridi_fs_${this.lineHeigthNum}`;
         break;
       default:
         break;
@@ -110,6 +125,7 @@ class OptionStore {
       lineHeigth: observable,
       text: observable,
       viewerType: observable,
+      textBundle: observable,
 
       // action 등록
       setText: action,
@@ -117,6 +133,7 @@ class OptionStore {
       optionMinus: action,
       setViewerType: action, 
       setFontFamily: action,
+      setTextBundle: action,
     });
   }
 }
