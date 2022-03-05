@@ -1,13 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header"
-import FindIdPage from "./Page/FindIdPage";
-import FindPwPage from "./Page/FindPwPage";
 import ListPage from "./Page/ListPage";
 import LoginPage from "./Page/LoginPage";
 import Mypage from "./Page/Mypage";
 import SignupPage from "./Page/SignupPage";
 import ViewerPage from "./Page/ViewerPage";
 import ViewerAll from "./Page/ViewerAll";
+import FindUserPage from "./Page/FindUserPage";
 
 
 function App() {
@@ -22,8 +21,7 @@ function App() {
           <Route path="/mypage" element={<Mypage />}/>
           <Route path="/login" element={<LoginPage />}/>
           <Route path="/signup" element={<SignupPage />}/>
-          <Route path="/find_id" element={<FindIdPage />}/>
-          <Route path="/find_password" element={<FindPwPage />}/>
+          <Route path="/find_user" element={<FindUserPage />}/>
         </Routes>
       </main>
     </div>

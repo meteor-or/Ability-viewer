@@ -37,17 +37,12 @@ const LoginPage = () => {
 					<div className='errorBox' style={{color:"red"}}>{userStore.failedLogin && <p>아이디나 비밀번호를 다시 확인해주세요</p>}</div>
 					<button 
 					type='submit'
-					className='unset border-box br-12 b-500 bg-500 tc-50 w-full px-16 py-12 my-8' 
+					className='unset border-box br-8 b-500 bg-500 tc-50 w-full px-16 py-12 my-8' 
 					style={{textAlign: 'center', cursor: 'pointer'}}
 					onClick={()=>{userStore.handleLogin(loginId,loginPw)}}>로그인</button>
 				</form>
 
-
-				<ul className='flex'>
-					<li className='mr-4'><Link to="/signup">회원가입 |</Link></li>
-					<li className='mr-4'><Link to="/find_id">아이디찾기 |</Link></li>
-					<li><Link to="/find_password">비밀번호찾기 </Link></li>
-				</ul>
+				<Link to="/find_user">아이디 | 비밀번호 찾기</Link>
 			</div>
 		</div>
 	)
