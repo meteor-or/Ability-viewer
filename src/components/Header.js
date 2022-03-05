@@ -13,13 +13,17 @@ const Header = () => {
 			<h1>
 				<LogoFull />
 			</h1> 
-			<div className='pr-24'>
+			<nav name='nav' className='pr-24'>
 				{userStore.logged 
 				? <Link to="/list">글목록</Link>
-				: <Link to="/login">로그인</Link>
+				: 
+				<>
+				<Link to="/signup" className='mr-8'>회원가입</Link>
+				<Link to="/login">로그인</Link>
+				</>
 				}
 				
-			</div>
+			</nav>
 		</header>
 	)
 }
