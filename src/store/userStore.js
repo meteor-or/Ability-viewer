@@ -16,6 +16,7 @@ class UserStore {
 				failedLogin: observable,
 
         handleLogin: action,
+				handleLogin: action,
       }
     )
   }
@@ -27,16 +28,29 @@ class UserStore {
 		};
 		this.#setLogin(request);
 	}
-	
+
+	handleLogout () {
+		this.#setLogout();
+	}
 		
 	async #setLogin (request) {
 		try {
 			const response = await axios.post('https://ability-backend.azurewebsites.net/login', request);
 			this.logged = true
+			console.log(response);
 		} catch (err) {
 			this.failedLogin = true
 		}
   }
+
+	async #setLogout () {
+		try {
+			axios.post('https://ability-backend.azurewebsites.net/logout');
+			this.logged = false;
+		} catch (err) {
+			console.log(err);
+		}
+	}
 }	
 const userStore = new UserStore();
 

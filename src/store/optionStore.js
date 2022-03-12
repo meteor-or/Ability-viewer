@@ -74,12 +74,12 @@ class OptionStore {
       case this.optionType.paragraphHeigth:
         if(this.paragraphHeigthNum === 6) return;
         this.paragraphHeigthNum++;
-        this.paragraphHeigth = `ridi_fs_${this.paragraphHeigthNum}`;
+        this.paragraphHeigth = `ridi_ph_${this.paragraphHeigthNum}`;
         break;
       case this.optionType.lineHeigth:
         if(this.lineHeigthNum === 6) return;
         this.lineHeigthNum++;
-        this.lineHeigth = `ridi_fs_${this.lineHeigthNum}`;
+        this.lineHeigth = `ridi_lh_${this.lineHeigthNum}`;
         break;
       default:
         break;
@@ -96,12 +96,12 @@ class OptionStore {
       case this.optionType.paragraphHeigth:
         if(this.paragraphHeigthNum === 1) return;
         this.paragraphHeigthNum--;
-        this.paragraphHeigth = `ridi_fs_${this.paragraphHeigthNum}`;
+        this.paragraphHeigth = `ridi_ph_${this.paragraphHeigthNum}`;
         break;
       case this.optionType.lineHeigth:
         if(this.lineHeigthNum === 1) return;
         this.lineHeigthNum--;
-        this.lineHeigth = `ridi_fs_${this.lineHeigthNum}`;
+        this.lineHeigth = `ridi_lh_${this.lineHeigthNum}`;
         break;
       default:
         break;

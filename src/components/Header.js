@@ -15,7 +15,11 @@ const Header = () => {
 			</h1> 
 			<nav name='nav' className='pr-24'>
 				{userStore.logged 
-				? <Link to="/list">글목록</Link>
+				?
+				<>
+				<Link to="/list" className='mr-8'>글목록</Link>
+				<Link to="/" onClick={userStore.handleLogout}>로그아웃</Link>
+				</>
 				: 
 				<>
 				<Link to="/signup" className='mr-8'>회원가입</Link>
