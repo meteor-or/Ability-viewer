@@ -13,12 +13,21 @@ class UserStore {
       { 
         online: observable,
 
+				handleSignup: action,
         handleLogin: action,
 				handleLogout: action,
       }
     )
   }
 
+	handleSignup (id, email, pw) {
+		const request = {
+			"id": id,
+			"email": email,
+			"password" : pw
+		};
+		this.#setSignup(request);
+	}
   handleLogin (id, pw) {
 		const request = {
 			"id" : id,
@@ -31,6 +40,13 @@ class UserStore {
 		this.#setLogout();
 	}
 	
+	async #setSignup (request) {
+		try {
+			const response = await axios.post('https://ability-backend.azurewebsites.net/users', request);
+		} catch (err) {
+			console.log(err)
+		}
+  }
 	async #setLogin (request) {
 		try {
 			const response = await axios.post('https://ability-backend.azurewebsites.net/login', request);
