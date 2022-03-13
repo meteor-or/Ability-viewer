@@ -715,3 +715,9 @@
 .f-basis {
   flex-basis: 0;
 }
+
+/* 임시 */
+
+#hashtagList > * {
+  flex : 0 0 auto;
+}
