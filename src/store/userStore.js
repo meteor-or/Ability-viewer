@@ -6,17 +6,15 @@ configure({ enforceActions: 'observed' });
 
 class UserStore {
 
-	logged = false;
-	failedLogin = false;
+	online = false;
 
   constructor() {
     makeObservable(this, 
-      {
-        logged: observable,
-				failedLogin: observable,
+      { 
+        online: observable,
 
         handleLogin: action,
-				handleLogin: action,
+				handleLogout: action,
       }
     )
   }
@@ -32,21 +30,20 @@ class UserStore {
 	handleLogout () {
 		this.#setLogout();
 	}
-		
+	
 	async #setLogin (request) {
 		try {
 			const response = await axios.post('https://ability-backend.azurewebsites.net/login', request);
-			this.logged = true
-			console.log(response);
+			this.online = true;
 		} catch (err) {
-			this.failedLogin = true
+			console.log(err)
 		}
   }
 
 	async #setLogout () {
 		try {
 			axios.post('https://ability-backend.azurewebsites.net/logout');
-			this.logged = false;
+			this.online = false;
 		} catch (err) {
 			console.log(err);
 		}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { observer } from 'mobx-react';
 import indexStore from '../store/indexStore';
@@ -7,9 +7,13 @@ import indexStore from '../store/indexStore';
 const LoginPage = () => {
 	const {userStore} = indexStore();
 
+	let navigate = useNavigate();
+
 	const [loginId, setLoginId] = useState("")
 	const [loginPw, setLoginPw] = useState("")
 
+	
+		userStore.online && navigate('/') 
 	
 	return (
 		<div id='loginPage'>
@@ -34,12 +38,11 @@ const LoginPage = () => {
 					required>
 					</input>
 					
-					<div className='errorBox' style={{color:"red"}}>{userStore.failedLogin && <p>아이디나 비밀번호를 다시 확인해주세요</p>}</div>
-					<Link to='../'><button 
-					type='submit'
-					className='unset border-box br-8 b-500 bg-500 tc-50 w-full px-16 py-12 my-8' 
+					<div className='errorBox' style={{color:"red"}}></div>
+					<button 
+					className='unset border-box br-8 b-500 bg-500 tc-50 w-full px-16 py-12 my-8'
 					style={{textAlign: 'center', cursor: 'pointer'}}
-					onClick={()=>{userStore.handleLogin(loginId,loginPw)}}>로그인</button></Link>
+					onClick={()=>{userStore.handleLogin(loginId,loginPw)}}>로그인</button>
 				</form>
 
 				<Link to="/find_user">아이디 | 비밀번호 찾기</Link>

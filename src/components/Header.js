@@ -14,7 +14,7 @@ const Header = () => {
 				<LogoFull />
 			</h1> 
 			<nav name='nav' className='pr-24'>
-				{userStore.logged 
+				{userStore.online 
 				?
 				<>
 				<Link to="/list" className='mr-8'>글목록</Link>
